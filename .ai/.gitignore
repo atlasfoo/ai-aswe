@@ -1,0 +1,12 @@
+# ==========================================
+# AI-ASE Framework - Control de Versiones
+# ==========================================
+
+# 1. SHORT-TERM BRAIN (Ignorar siempre)
+# Esta carpeta contiene el estado efímero de la sesión actual (plan.md, tasks.md, walkthrough.md).
+# No debe subirse al repositorio para evitar conflictos entre desarrolladores y ruido en Git.
+session/
+
+# 2. Archivos del Sistema Operativo (Opcional pero recomendado)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+description = "Generates a step-by-step plan and TDD task list based on a specification."
+
+prompt = """
+You are executing the `/plan` command for the AI-ASE framework.
+
+GLOBAL RULES:
+@{.ai/memory/constitution.md}
+
+TARGET SPECIFICATION OR DIRECTIVE:
+{{args}}
+
+INSTRUCTIONS:
+1. **Context Gathering:** - If a specific folder name was provided in the directive (e.g., `auth-feature`), read the contents of `.ai/active-specs/{{args}}/prd.md` and `.ai/active-specs/{{args}}/user-stories.md`.
+   - If no folder was provided, use the directive itself as the raw requirement.
+2. **Strategy (`plan.md`):** Create or overwrite `.ai/session/plan.md` with a high-level architectural approach for this implementation. Explain *how* the components will interact.
+3. **Execution Checklist (`tasks.md`):** Create or overwrite `.ai/session/tasks.md` with a granular, technical checklist using Markdown checkboxes (`- [ ]`).
+4. **STRICT TDD QUALITY GATE:** The tasks MUST be structured following Test-Driven Development. For every logical block, the sequence must be:
+   - [ ] Write failing tests for [Component].
+   - [ ] Implement [Component] to pass tests.
+   - [ ] Refactor and verify linting.
+
+Do NOT write production code yet. Await the human developer's approval of the generated markdown files.
+"""
