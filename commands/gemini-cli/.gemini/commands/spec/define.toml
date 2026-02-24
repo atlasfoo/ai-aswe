@@ -18,6 +18,7 @@ INSTRUCTIONS:
    - Scope (In-scope and strictly Out-of-scope).
    - Technical constraints or dependencies.
    - Testing strategy / Quality Gates.
-4. **Draft User Stories:** Generate actionable tasks and save them to `user-stories.md` inside the new folder. Format them as a Markdown checklist (`- [ ]`) grouped by logical epics or user flows.
+4. **Draft User Stories:** Generate actionable tasks and save them to `user-stories.md` inside the new folder. Format them as a Markdown checklist (`- [ ]`). 
+   - **CRITICAL MOCKING RULE:** For any story that interacts with an external system or mock, you MUST explicitly list the "Mock Trigger Variables" for the happy and sad paths directly in the story description (e.g., *Use `card_token=tok_fail` to simulate a 400 Bad Request*). Ask the user for these values if they are unknown.
 5. **Output:** Confirm to the user that the specification has been created and remind them they can use `/spec:clarify` to refine it, or `/plan <feature-name>` to start execution.
 """

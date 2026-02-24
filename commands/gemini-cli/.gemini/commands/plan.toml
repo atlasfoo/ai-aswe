@@ -14,9 +14,9 @@ INSTRUCTIONS:
    - If no folder was provided, use the directive itself as the raw requirement.
 2. **Strategy (`plan.md`):** Create or overwrite `.ai/session/plan.md` with a high-level architectural approach for this implementation. Explain *how* the components will interact.
 3. **Execution Checklist (`tasks.md`):** Create or overwrite `.ai/session/tasks.md` with a granular, technical checklist using Markdown checkboxes (`- [ ]`).
-4. **STRICT TDD QUALITY GATE:** The tasks MUST be structured following Test-Driven Development. For every logical block, the sequence must be:
-   - [ ] Write failing tests for [Component].
-   - [ ] Implement [Component] to pass tests.
+4. **STRICT TDD & MOCKING RULE:** The tasks MUST be structured following Test-Driven Development. For every logical block, the sequence must be:
+   - [ ] Write failing parameterized tests for [Component]. If interacting with opaque mocks, design the test to accept injected variables (defined in the spec) to trigger happy/sad paths. DO NOT hardcode the mock's expected behavior.
+   - [ ] Implement [Component] to pass the tests.
    - [ ] Refactor and verify linting.
 
 Do NOT write production code yet. Await the human developer's approval of the generated markdown files.
